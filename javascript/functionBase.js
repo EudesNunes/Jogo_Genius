@@ -1,28 +1,43 @@
 
 var CoresLevel = [];
+localStorage.setItem('CoresLevel', CoresLevel);
+
 var test = 0;
+
 var clicavel = true;
+localStorage.setItem('clicavel', clicavel);
+
 var iniciado = false;
+localStorage.setItem('iniciado', iniciado);
+
 var ganhou = false;
+
 var level = 0
-localStorage.setItem(CoresLevel, clicavel, iniciado, level);
+localStorage.setItem('level', level);
+
+var nivelSel = localStorage.getItem("nivelSelecionado");
 
 const MusicErro = new Audio('../sons/erro.mp3');
-const MusicBongo1 = new Audio('../sons/bongo_1.wav');
-const MusicBongo2 = new Audio('../sons/bongo_2.wav');
-const MusicBongo3 = new Audio('../sons/bongo_3.wav');
-const MusicBongo4 = new Audio('../sons/bongo_4.wav');
+const MusicVermelho = new Audio('../sons/bongo_1.wav');
+const MusicVerde = new Audio('../sons/bongo_2.wav');
+const MusicAzul = new Audio('../sons/bongo_3.wav');
+const MusicAmarelo = new Audio('../sons/bongo_4.wav');
+const MusicGanhou = new Audio('../sons/ganhou.mp3');
+const MusicGamerOver = new Audio('../sons/gameover.mp3');
+
+
 
 
 async function procura(cores) {
 
+  
     if (clicavel === true) {
+        eval(cores)
+        console.log(cores)
+
         if (iniciado === true) {
-            eval(cores)
-            console.log("teste", cores)
 
             if (cores === CoresLevel[test]) {
-                console.log('Certo')
                 test += 1
                 ganhou = true
                 if (test === CoresLevel.length) {
@@ -31,21 +46,15 @@ async function procura(cores) {
                 }
 
             } else if (cores !== CoresLevel[test]) {
-                console.log('Game Over')
                 ganhou = false
                 MusicErro.play()
                 alert("Game Over")
                 history.go(0);
-
-
             }
 
-        } else if (iniciado === false) {
-            eval(cores)
-            console.log("b", cores)
         }
     }
-    await delay(2);
+    await delay(1);
     apagar()
 }
 
@@ -55,20 +64,19 @@ function iniciar() {
 
     if (iniciado === true) {
         history.go(0);
-
     }
 
-    if (btnlevel[0].checked === true) {
-        console.log('level 1')
+    if (nivelSel === 'btnEasy') {
+        console.log('level Easy')
         level = 1
         window.level_one()
-    } else if (btnlevel[1].checked === true) {
-        console.log('level 2')
+    } else if (nivelSel === 'btnMedium') {
+        console.log('level Medium')
         level = 2
         window.level_two();
 
-    } else if (btnlevel[2].checked === true) {
-        console.log('level 3')
+    } else if (nivelSel === 'btnHardcore') {
+        console.log('level Hardcore')
         level = 3
         level_three()
 
@@ -91,10 +99,11 @@ function leves() {
         level_three()
     }
 }
-function levelganho(){
+function levelganho() {
     console.log("Fim do jogo")
-        alert("Você Ganhou!!!!")
-        history.go(0);
+    MusicGanhou.play()
+    alert("Você Ganhou!!!!")
+    history.go(0);
 }
 
 
@@ -110,43 +119,39 @@ function aleatorio() {
 //----------------------------Vermelho--------------------------------------------
 function Vermelho100() {
     const vm = document.getElementById('vm');
-    console.log('vermelho 100')
     vm.classList.remove('bg-opacity-75');
     vm.classList.add('bg-opacity-100');
     vm.classList.add('border');
-    MusicBongo1.play()
+    MusicVermelho.play()
 
 }
 //-----------------------------Verde----------------------------------------
 function Verde100() {
     const vd = document.getElementById('vd');
-    console.log('verde 100')
     vd.classList.remove('bg-opacity-75');
     vd.classList.add('bg-opacity-100');
     vd.classList.add('border');
-    MusicBongo2.play()
+    MusicVerde.play()
 
 }
 
 //-----------------------Azul---------------------------------
 function azul100() {
     const az = document.getElementById('az');
-    console.log('Azul 100')
     az.classList.remove('bg-opacity-75');
     az.classList.add('bg-opacity-100');
     az.classList.add('border');
-    MusicBongo3.play()
+    MusicAzul.play()
 
 }
 
 //------------------------Amarelo----------------------------------
 function amarelo100() {
     const am = document.getElementById('am');
-    console.log('Amarelo 100')
     am.classList.remove('bg-opacity-75');
     am.classList.add('bg-opacity-100');
     am.classList.add('border');
-    MusicBongo4.play()
+    MusicAmarelo.play()
 
 }
 //------------------------Voltar a opacidade para 75----------------------------------

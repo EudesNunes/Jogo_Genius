@@ -36,7 +36,6 @@ async function level_one() {
     console.log(leves_one)
     console.log(CoresLevel)
     clicavel = true;
-    console.log('Sua vez')
     break
 
   };
@@ -74,7 +73,6 @@ async function level_two() {
     console.log(leves_two)
     console.log(CoresLevel)
     clicavel = true;
-    console.log('Sua vez')
     break
 
   };
@@ -111,7 +109,6 @@ async function level_three() {
     console.log(leves_three)
     console.log(CoresLevel)
     clicavel = true;
-    console.log('Sua vez')
     break
 
   };

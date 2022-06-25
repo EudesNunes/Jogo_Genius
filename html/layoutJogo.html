@@ -18,58 +18,56 @@
 
 <body class="bg-light">
 
-  <nav class="navbar bg-dark bg-gradient bg-opacity-100">
-    <div class="container-fluid ">
-      <span class="navbar-brand mb-1 h1 text-light ">Genius</span>
+  <nav class="navbar bg-dark ">
+    <div class="container-fluid justify-content-center">
+      <img src="../img/logonavbarpng.png" class="img-fluid rounded-top" width="200" alt="logo">
     </div>
   </nav>
 
-  <div class="container container-fluid p-5">
+  <div class="container container-fluid ">
+
     <div class="row">
-      <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-        <input type="radio" class="btn-check" name="btnlevel" id="level1" value="level1" autocomplete="off" checked>
-        <label class="btn btn-outline-primary" for="level1">level 1</label>
-
-        <input type="radio" class="btn-check" name="btnlevel" value="level2" id="level2" autocomplete="off">
-        <label class="btn btn-outline-primary" for="level2">level 2</label>
-
-        <input type="radio" class="btn-check" name="btnlevel" id="level3" value="level3" autocomplete="off">
-        <label class="btn btn-outline-primary" for="level3">level 3</label>
+      <div class="col-md-5"></div>
+      <div class="col-md-2">
+        <div class="d-grid gap-2"><br>
+          <button type="button" id="jogar" class="btn btn-dark btn-lg fw-bolder fs-5 "
+            onclick="iniciar()">Iniciar</button>
+          <br>
+        </div>
       </div>
-
-      <div class="row">
-
-        <input type="button" class="btn" name="jogar" id="jogar" onclick="iniciar()">
-        <label class="btn btn-primary" for="jogar">jogar</label>
-      </div>
+      <div class="col-md-5"></div>
     </div>
-    <div class=" col col-sm-5 container container-fluid bg-dark p-4 rounded-circle ">
 
+    <div class=" col col-sm-5 container container-fluid bg-black p-3 rounded-circle ">
       <div class="row d-flex justify-content-center ">
-        <div class="col-5 col-sm-5 m-2 border-light border-1 bg-success bg-opacity-75"
+        <div class="col-5 col-sm-5 m-2 border-light border-3 bg-success bg-opacity-75"
           style="border-top-left-radius: 100%;" id="vd" onclick="procura('Verde100()')">
           <br><br><br><br><br><br><br><br><br>
         </div>
-        <div class="col-5 col-sm-5 m-2  bg-danger border-1 border-light bg-opacity-75 "
+        <div class="col-5 col-sm-5 m-2  bg-danger border-3 border-light bg-opacity-75 "
           style="border-top-right-radius: 100%;" id="vm" onclick="procura('Vermelho100()')">
           <br><br><br><br><br><br><br><br><br>
         </div>
       </div>
 
       <div class="row d-flex  justify-content-center">
-        <div class="col-5 col-sm-5 m-2 bg-warning border-1 border-light bg-opacity-75"
+        <div class="col-5 col-sm-5 m-2 bg-warning border-3 border-light bg-opacity-75"
           style="border-bottom-left-radius: 100%;" id="am" onclick="procura('amarelo100()')">
           <br><br><br><br><br><br><br><br><br>
         </div>
-        <div class="col-5 col-sm-5  m-2  bg-info border-1 border-light bg-opacity-75"
+        <div class="col-5 col-sm-5  m-2  bg-info border-3 border-light bg-opacity-75"
           style="border-bottom-right-radius: 100%;" id="az" onclick="procura('azul100()')">
           <br><br><br><br><br><br><br><br><br>
         </div>
-
       </div>
     </div>
 
   </div>
+  <footer class="footer fixed-bottom py-2 text-bg-dark">
+    <div class=" text-center">
+      <small>Copyright &copy; Eudes_Nunes</small>
+    </div>
+  </footer>
 
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"

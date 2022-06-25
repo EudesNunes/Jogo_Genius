@@ -11,38 +11,47 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <script src="javascript/functionIndex.js"></script>
-
+  <link rel="stylesheet" href="css\style.css">
 </head>
 
-<body class="bg-light">
+<body>
 
-  <nav class="navbar bg-dark bg-gradient bg-opacity-100">
-    <div class="container-fluid ">
-      <span class="navbar-brand mb-1 h1 text-light ">Genius</span>
+  <div class="container bg-gradient">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <img src="img/geniuslogo.png" class="img-fluid " alt="Genius">
+      </div>
+      <div class="col-md-3"></div>
     </div>
-  </nav>
-
-  <div class="container container-fluid p-5">
     <div class="row">
       <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-        <input type="radio" class="btn-check" name="btnlevel" id="level1" value="level1" autocomplete="off" checked>
-        <label class="btn btn-outline-primary" for="level1">level 1</label>
-
-        <input type="radio" class="btn-check" name="btnlevel" value="level2" id="level2" autocomplete="off">
-        <label class="btn btn-outline-primary" for="level2">level 2</label>
-
-        <input type="radio" class="btn-check" name="btnlevel" id="level3" value="level3" autocomplete="off">
-        <label class="btn btn-outline-primary" for="level3">level 3</label>
-      </div>
-
-      <div class="row">
-
-        <input type="button" class="btn" name="jogar" id="jogar" onclick="jogar()" >
-        <label class="btn btn-primary" for="jogar">jogar</label>
+        <input type="radio" class="btn-check" name="btnNivel" id="btnEasy" autocomplete="off">
+        <label class="btn btn-outline-dark btn-light fw-semibold fs-4 text-danger" for="btnEasy">Easy</label>
+        <input type="radio" class="btn-check" name="btnNivel" id="btnMedium" autocomplete="off" checked>
+        <label class="btn btn-outline-dark btn-light fw-semibold fs-4 text-danger" for="btnMedium">Medium</label>
+        <input type="radio" class="btn-check" name="btnNivel" id="btnHardcore" autocomplete="off">
+        <label class="btn btn-outline-dark btn-light fw-semibold fs-4 text-danger" for="btnHardcore">Hardcore</label>
       </div>
     </div>
-
+    <div class="row">
+      <div class="col-md-5"></div>
+      <div class="col-md-2">
+        <div class="d-grid gap-2">
+          <br>
+          <button type="button" id="btnJogar" class="btn btn-dark btn-lg fw-bold fs-2 text-danger"
+            onclick="jogar()">Jogar</button>
+        </div>
+      </div>
+      <div class="col-md-5"></div>
+    </div>
   </div>
+
+  <footer class="footer fixed-bottom py-3 text-bg-dark">
+    <div class=" text-center">
+      <small>Copyright &copy; Eudes_Nunes</small>
+    </div>
+  </footer>
 
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
