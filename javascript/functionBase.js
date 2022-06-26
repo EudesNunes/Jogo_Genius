@@ -17,6 +17,9 @@ localStorage.setItem('level', level);
 
 var nivelSel = localStorage.getItem("nivelSelecionado");
 
+var totalvida = 3
+var modos = 0
+
 const MusicErro = new Audio('../sons/erro.mp3');
 const MusicVermelho = new Audio('../sons/bongo_1.wav');
 const MusicVerde = new Audio('../sons/bongo_2.wav');
@@ -24,38 +27,66 @@ const MusicAzul = new Audio('../sons/bongo_3.wav');
 const MusicAmarelo = new Audio('../sons/bongo_4.wav');
 const MusicGanhou = new Audio('../sons/ganhou.mp3');
 const MusicGamerOver = new Audio('../sons/gameover.mp3');
+const MusicVencedor = new Audio('../sons/vencedor.wav');
 
 
+function inicio() {
+    modoLivre();
+}
+function gameover(){
+    MusicGamerOver.play()
+}
 
+function fim(){
+    MusicVencedor.play()
+}
 
 async function procura(cores) {
 
-  
-    if (clicavel === true) {
+    if (modos === 0) {
+        eval(cores)
+        console.log(cores)
+        await delay(1);
+        apagar()
+    }else if(modos === 1 ){
+
         eval(cores)
         console.log(cores)
 
-        if (iniciado === true) {
-
-            if (cores === CoresLevel[test]) {
-                test += 1
-                ganhou = true
-                if (test === CoresLevel.length) {
-                    test = 0
-                    leves()
-                }
-
-            } else if (cores !== CoresLevel[test]) {
-                ganhou = false
-                MusicErro.play()
-                alert("Game Over")
-                history.go(0);
+        if (cores === CoresLevel[test]) {
+            test += 1
+            ganhou = true
+            await delay(1);
+            apagar()
+            if (test === CoresLevel.length) {
+                test = 0
+                MusicGanhou.play()
+                await delay(1);
+                apagar()
+                leves()
             }
 
+        } else if (cores !== CoresLevel[test]) {
+            if (totalvida > 1 && totalvida <= 3) {
+                ganhou = false
+                totalvida -= 1
+                vidas()
+                await delay(1);
+                apagar()
+                MusicErro.play()
+                alert("Cor Errada")
+
+            }
+            else if (totalvida === 1) {
+                totalvida -= 1
+                vidas()
+                await delay(1);
+                apagar()
+                window.location.replace( "/html/gameover.html")
+            }
         }
     }
-    await delay(1);
-    apagar()
+
 }
 
 function iniciar() {
@@ -101,10 +132,40 @@ function leves() {
 }
 function levelganho() {
     console.log("Fim do jogo")
-    MusicGanhou.play()
-    alert("Você Ganhou!!!!")
-    history.go(0);
+    window.location.replace( "../html/fim.html")
 }
+function vidas() {
+    const vida = document.getElementById('vidas');
+    console.log(vida)
+
+    if (totalvida === 3) {
+        vida.textContent = "3 vidas";
+    } else if (totalvida === 2) {
+        vida.textContent = "2 vidas";
+    } else if (totalvida === 1) {
+        vida.textContent = "1 vidas";
+    } else if (totalvida === 0)
+        vida.textContent = "Morto";
+}
+
+function modoLivre() {
+    const md = document.getElementById('modo');
+    md.textContent = "Modo livre";
+    modos = 0
+}
+
+function modoSuaVez() {
+    const md = document.getElementById('modo');
+    md.textContent = "Sua vez";
+    modos = 1
+}
+
+function modoEspera() {
+    const md = document.getElementById('modo');
+    md.textContent = "Espere Sua Vez";
+    modos = 2
+}
+
 
 
 //=============================================================Cores piscando========================================================

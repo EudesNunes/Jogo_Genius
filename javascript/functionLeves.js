@@ -13,11 +13,13 @@ var tempo_one = 7
 async function level_one() {
   CoresLevel = []
   iniciado = true
+  
   if (leves_one === 0) {
     window.levelganho()
   }
   while (leves_one > 0) {
     clicavel = false
+    window.modoEspera()
 
     for (let i1 = 0; i1 < qtd_cores_one; i1++) {
       let name = window.aleatorio()
@@ -36,6 +38,7 @@ async function level_one() {
     console.log(leves_one)
     console.log(CoresLevel)
     clicavel = true;
+    window.modoSuaVez()
     break
 
   };
@@ -55,6 +58,7 @@ async function level_two() {
   }
   while (leves_two > 0) {
     clicavel = false
+    window.modoEspera()
 
     for (let i1 = 0; i1 < qtd_cores_two; i1++) {
       let name = window.aleatorio()
@@ -73,6 +77,7 @@ async function level_two() {
     console.log(leves_two)
     console.log(CoresLevel)
     clicavel = true;
+    window.modoSuaVez()
     break
 
   };
@@ -91,6 +96,7 @@ async function level_three() {
   }
   while (leves_three > 0) {
     clicavel = false
+    window.modoEspera()
 
     for (let i1 = 0; i1 < qtd_cores_three; i1++) {
       let name = window.aleatorio()
@@ -109,6 +115,7 @@ async function level_three() {
     console.log(leves_three)
     console.log(CoresLevel)
     clicavel = true;
+    window.modoSuaVez()
     break
 
   };
