@@ -82,7 +82,7 @@ async function procura(cores) {
                 vidas()
                 await delay(1);
                 apagar()
-                window.location.replace( "/html/gameover.html")
+                window.location.assign( "/html/gameover.html")
             }
         }
     }
@@ -132,7 +132,7 @@ function leves() {
 }
 function levelganho() {
     console.log("Fim do jogo")
-    window.location.replace( "../html/fim.html")
+    window.location.assign( "../html/fim.html")
 }
 function vidas() {
     const vida = document.getElementById('vidas');
