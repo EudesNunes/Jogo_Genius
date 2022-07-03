@@ -29,15 +29,26 @@ const MusicGanhou = new Audio('../sons/ganhou.mp3');
 const MusicGamerOver = new Audio('../sons/gameover.mp3');
 const MusicVencedor = new Audio('../sons/vencedor.wav');
 
-
 function inicio() {
+    const nv = document.getElementById('nivel');
+
+    if (nivelSel === 'btnEasy') {
+        nv.textContent = "Nivel Easy";
+    } else if (nivelSel === 'btnMedium') {
+        nv.textContent = "Nivel Medium";
+    } else if (nivelSel === 'btnHardcore') {
+        nv.textContent = "Nivel Hardcore";
+    }
+
     modoLivre();
+
 }
-function gameover(){
+
+function gameover() {
     MusicGamerOver.play()
 }
 
-function fim(){
+function fim() {
     MusicVencedor.play()
 }
 
@@ -45,14 +56,11 @@ async function procura(cores) {
 
     if (modos === 0) {
         eval(cores)
-        console.log(cores)
         await delay(1);
         apagar()
-    }else if(modos === 1 ){
+    } else if (modos === 1) {
 
         eval(cores)
-        console.log(cores)
-
         if (cores === CoresLevel[test]) {
             test += 1
             ganhou = true
@@ -60,6 +68,7 @@ async function procura(cores) {
             apagar()
             if (test === CoresLevel.length) {
                 test = 0
+                MusicGanhou.load()
                 MusicGanhou.play()
                 await delay(1);
                 apagar()
@@ -73,6 +82,7 @@ async function procura(cores) {
                 vidas()
                 await delay(1);
                 apagar()
+                MusicErro.load()
                 MusicErro.play()
                 alert("Cor Errada")
 
@@ -82,7 +92,7 @@ async function procura(cores) {
                 vidas()
                 await delay(1);
                 apagar()
-                window.location.assign( "../html/gameover.html")
+                window.location.assign("/html/gameover.html")
             }
         }
     }
@@ -118,26 +128,21 @@ function leves() {
     CoresLevel = []
 
     if (level === 1) {
-        console.log('level 1')
         window.level_one();
 
     } else if (level === 2) {
-        console.log('level 2')
         window.level_two();
 
     } else if (level === 3) {
-        console.log('level 3')
-        level_three()
+        window.level_three()
     }
 }
 function levelganho() {
     console.log("Fim do jogo")
-    window.location.assign( "../html/fim.html")
+    window.location.replace("../html/fim.html")
 }
 function vidas() {
     const vida = document.getElementById('vidas');
-    console.log(vida)
-
     if (totalvida === 3) {
         vida.textContent = "3 vidas";
     } else if (totalvida === 2) {
@@ -182,7 +187,14 @@ function Vermelho100() {
     const vm = document.getElementById('vm');
     vm.classList.remove('bg-opacity-75');
     vm.classList.add('bg-opacity-100');
-    vm.classList.add('border');
+    vm.style.borderColor = 'white';
+    MusicGanhou.pause()
+    MusicErro.pause()
+    MusicVerde.pause()
+    MusicVermelho.pause()
+    MusicAmarelo.pause()
+    MusicAzul.pause()
+    MusicVermelho.load()
     MusicVermelho.play()
 
 }
@@ -191,7 +203,14 @@ function Verde100() {
     const vd = document.getElementById('vd');
     vd.classList.remove('bg-opacity-75');
     vd.classList.add('bg-opacity-100');
-    vd.classList.add('border');
+    vd.style.borderColor = 'white';
+    MusicGanhou.pause()
+    MusicErro.pause()
+    MusicVerde.pause()
+    MusicVermelho.pause()
+    MusicAmarelo.pause()
+    MusicAzul.pause()
+    MusicVerde.load()
     MusicVerde.play()
 
 }
@@ -201,7 +220,14 @@ function azul100() {
     const az = document.getElementById('az');
     az.classList.remove('bg-opacity-75');
     az.classList.add('bg-opacity-100');
-    az.classList.add('border');
+    az.style.borderColor = 'white';
+    MusicGanhou.pause()
+    MusicErro.pause()
+    MusicVerde.pause()
+    MusicVermelho.pause()
+    MusicAmarelo.pause()
+    MusicAzul.pause()
+    MusicAzul.load()
     MusicAzul.play()
 
 }
@@ -211,7 +237,14 @@ function amarelo100() {
     const am = document.getElementById('am');
     am.classList.remove('bg-opacity-75');
     am.classList.add('bg-opacity-100');
-    am.classList.add('border');
+    am.style.borderColor = 'white';
+    MusicGanhou.pause()
+    MusicErro.pause()
+    MusicVerde.pause()
+    MusicVermelho.pause()
+    MusicAmarelo.pause()
+    MusicAzul.pause()
+    MusicAmarelo.load()
     MusicAmarelo.play()
 
 }
@@ -230,11 +263,10 @@ function apagar() {
     am.classList.add('bg-opacity-75');
     az.classList.remove('bg-opacity-100');
     az.classList.add('bg-opacity-75');
-    vd.classList.remove('border');
-    vm.classList.remove('border');
-    am.classList.remove('border');
-    az.classList.remove('border');
-
+    vd.style.borderColor = 'rgb(17, 14, 14)';
+    vm.style.borderColor = 'rgb(17, 14, 14)';
+    am.style.borderColor = 'rgb(17, 14, 14)';
+    az.style.borderColor = 'rgb(17, 14, 14)';
 }
 
 //-----------------------temporizador-------------------------------------------
@@ -244,3 +276,4 @@ function delay(n) {
         setTimeout(resolve, n * 200);
     });
 }
+

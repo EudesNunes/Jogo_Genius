@@ -1,0 +1,68 @@
+body {
+    min-width: 350px;
+  }
+.circulo {
+    min-width: 43vw;
+    max-width: 100vw;
+    height: 85vh;
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 100%;
+}
+
+.topo {
+    background-color: rgb(17, 14, 14);
+    width: 55%;
+    height: 55%;
+    position: absolute;
+    border-radius: 100%;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.quad {
+    display: flex;
+    align-items: center;
+    border: 1vmax solid rgb(17, 14, 14);
+    justify-content: center;
+}
+
+.tx-centralizar {
+    font-size: 2em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.verm {
+    border-top-left-radius: 100%;
+}
+
+.verde {
+    border-top-right-radius: 100%;
+}
+
+.amar {
+    border-bottom-left-radius: 100%;
+}
+
+.azul {
+    border-bottom-right-radius: 100%;
+}
+
+.linha {
+    height: 50%;
+    display: flex;
+
+}
+
+.navbar-text {
+    margin: 0 20px;
+}
+

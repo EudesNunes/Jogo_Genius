@@ -9,11 +9,15 @@ var level = localStorage.getItem("level");
 var leves_one = 4
 var qtd_cores_one = 2
 var tempo_one = 7
+var qtd_nivel = 0
 
 async function level_one() {
+  qtd_nivel++
+  const fs = document.getElementById('fase');
+  fs.textContent = ('Fase ' + qtd_nivel + '/4');
   CoresLevel = []
   iniciado = true
-  
+
   if (leves_one === 0) {
     window.levelganho()
   }
@@ -39,6 +43,7 @@ async function level_one() {
     console.log(CoresLevel)
     clicavel = true;
     window.modoSuaVez()
+
     break
 
   };
@@ -51,6 +56,9 @@ var qtd_cores_two = 2
 var tempo_two = 7
 
 async function level_two() {
+  qtd_nivel++
+  const fs = document.getElementById('fase');
+  fs.textContent = ('Fase ' + qtd_nivel + '/6');
   CoresLevel = []
   iniciado = true
   if (leves_two === 0) {
@@ -86,9 +94,12 @@ async function level_two() {
 
 var leves_three = 8
 var qtd_cores_three = 4
-var tempo_three = 5
+var tempo_three = 6
 
 async function level_three() {
+  qtd_nivel++
+  const fs = document.getElementById('fase');
+  fs.textContent = ('Fase ' + qtd_nivel + '/8');
   CoresLevel = []
   iniciado = true
   if (leves_three === 0) {
@@ -109,8 +120,8 @@ async function level_three() {
     }
     leves_three -= 1
     qtd_cores_three += 2
-    if (tempo_three > 2) {
-      tempo_three -= 2
+    if (tempo_three > 3) {
+      tempo_three -= 1
     }
     console.log(leves_three)
     console.log(CoresLevel)
