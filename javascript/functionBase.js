@@ -92,7 +92,7 @@ async function procura(cores) {
                 vidas()
                 await delay(1);
                 apagar()
-                window.location.assign("/html/gameover.html")
+                window.location.assign("../html/gameover.html")
             }
         }
     }
